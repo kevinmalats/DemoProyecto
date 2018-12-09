@@ -17,7 +17,7 @@
 <!--    <a href="admin.html"> <button type="button" name="button">Menu Administracion</button> </a>-->
     <a href="index.html"> <button class="btn btn-danger" type="button" name="button">Menu Principal</button> </a>
 
-   <!--        div carga avatares--> 
+   <!--        div carga avatares-->
     <div id="divUsuarios">
             <h1>Lista de Avatares</h1>
                 <table id="avatares" class="table table-bordered table-dark">
@@ -32,18 +32,18 @@
                             <!-- <input type="text" id="nombre-a"> -->
                             <input type='file' id="imgInp1" />
                             <img id="portada-excursion-avatares" src="#" alt="your image" width="100" height="100"/>
-            
+
                         </label><br>
                         <label for="avatar">
                             Puntaje:
                                 <input type="text" id="puntos-a">
                         </label>
-        
+
                             <button id="btn-agregar-avatar">Guardar</button>
                         <button id="btnCancelarAvatar">Cancelar</button>
                 </div>
                 </div>
-                
+
         <!-- POPUP EDITAR AVATAR -->
             <div id="fondoDivOculto" class="oculto editar-avatar">
                 <div id="editar-avatar" class="oculto ventPop">
@@ -57,7 +57,13 @@
                         Puntaje:
                             <input type="text" id="puntos-">
                     </label>
-        
+                    <label for="avatar">
+                        Estado:
+                            <select id="estadoAvatar"> <option value="T">ACTIVADO</option>
+                              <option value="F">DESACTIVADO</option>   
+                              </select>
+                    </label>
+
                         <button id="guardar-avatares">Guardar</button>
                         <button id="btnCancelarEditarAvatar">Cancelar</button>
                 </div>
@@ -79,6 +85,12 @@
                                 <input type='file' id="editarPortadaImagen" />
                                     <!--<input type="text" id="excursion-portada">-->
                         </label>
+                          <label for="Estado">
+                            <select  id="estado" class="estado" name="">
+                              <option value="t">Activar</option>
+                              <option value="f">Desactivar</option>
+                            </select>
+                          </label>
                         <button id="guardar-imagenes">Guardar</button>
                         <button id="btnCancelarEditarImagenes">Cancelar</button>
                 </div>
@@ -91,7 +103,13 @@
                                         Portada URL:
                                         <input type='file' id="imgInp" />
                                         <img id="portada-excursion-imagenes" src="#" alt="your image" width="100" height="100"/>
-                                            <!--<input type="text" id="excursion-portada-a">-->                  
+                                            <!--<input type="text" id="excursion-portada-a">-->
+                                          </label>
+                                          <label for="Estado">
+                                            <select  id="estadoguardar" class="estado" name="">
+                                              <option value="t">Activar</option>
+                                              <option value="f">Desactivar</option>
+                                            </select>
                                           </label>
                         <br>
                                 <button id="guardar-nueva-Imagenes">Agregar</button>
@@ -106,11 +124,11 @@
 
     <!-- <button id="btn-descargar-json" class="btn btn-primary">Descargar JSON </button> -->
 
-        
 
 
-        
-        
+
+
+
 <script src="js/jquery-3.2.1.js"></script>
 <script src="js/constructor.js"> </script>
 <script src="js/AdminAvatares.js"></script>

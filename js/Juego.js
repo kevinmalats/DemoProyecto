@@ -42,7 +42,13 @@ class Juego {
     this.level = 1;
 
     this.root = null;
-    this.cardsImages = images;
+    let tmpcard= [];
+    for (var variable in images) {
+      if (images[variable].estado=="t" ){
+        tmpcard.push(images[variable]);
+      }
+    }
+    this.cardsImages = tmpcard;
     this.user = user;
   }
 
@@ -162,6 +168,7 @@ class Juego {
 
   // Avanza a pantalla de resultados
   gotoNextScreen() {
+     juego.updateScore();
     window.location.href = "felicidades.html";
   }
 

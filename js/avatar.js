@@ -4,6 +4,9 @@ var datos=JSON.parse(localStorage.getItem("personajes"));
 var mostra="";
 
 for (var img in datos) {
+  if (datos[img].estado=="T") {
+
+
   var celda = document.createElement("div");
   var puntos= document.createElement("h4");
   puntos.textContent=datos[img].puntos+" puntos";
@@ -19,7 +22,7 @@ celda.appendChild(link);
 
 link.appendChild(imagenAvatar);
 conten.appendChild(celda); //agrega los avatares
-
+}
 //console.log(datos[img]);
 }
 

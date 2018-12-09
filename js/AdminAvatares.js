@@ -24,6 +24,7 @@ function dibujarTablaAvatares(){
     $('#avatares').append($('<tr>')
     // .append($('<th>')).append("id") atributos de clases constructor.js
     .append($('<th>').append("nombre"))
+    .append($('<th>').append("estado"))
     .append($('<th>').append("puntos"))
     )
     listarAvatares();
@@ -32,6 +33,7 @@ function listarAvatares(){
     $.each(arrayAvaters, function(index, avatar){
         $('#avatares').append($('<tr>')
             .append($('<td>').append(`<img src=${avatar.nombre} class="lista-img">`))
+            .append($('<td>').append(avatar.estado))
             .append($('<td>').append(avatar.puntos))
             .append($("<td>").append(`<button onclick=editarAvatar(${index})> Editar</button>`))
             .append($("<td>").append(`<button onclick=eliminarAvatar(${index})> Eliminar</button>`))
@@ -52,6 +54,7 @@ function listarImagenes(){
     $.each(arrayImagenes,function(index,imagenes){
     $('#Imagenes').append($('<tr>')
     .append($('<td>').append(`<img src=${imagenes.nombre} class="lista-img">`))
+    .append($('<td>').append(`<h7> ${imagenes.estado} </h7>`))
     .append($("<td>").append(`<button onclick=editarImagen(${index})> Editar</button>`))
     .append($("<td>").append(`<button onclick=eliminarImagen(${index})> Eliminar</button>`))
         )
@@ -107,10 +110,11 @@ $("#guardar-avatares").click(function(){
     if(localStorage.getItem("index-edit")!=null){
         let nombre = $("#Avatar-portada").attr("src");
         let puntos = $("#puntos-").val();
+        let estadoAvatar = $("#estadoAvatar").val();
     let puntosact =parseInt(puntos,10);
 
         let avatar_edit = new Avatar(nombre, puntosact);
-
+        avatar_edit.estado = estadoAvatar;
         //arrayAvaters[localStorage.getItem("index-edit")] = avatar_edit;
         let indice=0;
         let foto= arrayAvaters[localStorage.getItem("index-edit")].nombre;
@@ -148,12 +152,13 @@ if(localStorage.getItem("index-edit")!=null){
    // $("#editar-imagenes").hide();
     let nombre = $("#Imagenes-portada").attr("src");
     let imagenes= arrayImagenes[localStorage.getItem("index-edit")].imagenes;
+    let estado =$("#estado").val();
     //let index_imagenes = localStorage.getItem("index-edit");
 
     //console.log("hola");
 
     let imagenes_edit = new Imagenes(nombre);
-
+     imagenes_edit.estado=estado;
  let indice=0;
         let foto= arrayImagenes[localStorage.getItem("index-edit")].nombre;
         for (var variable in arrayImagenes) {
@@ -232,11 +237,15 @@ $("#guardar-nueva-Imagenes").click(function(){
 
     //let nombre= $("#nombre-a").val();
     let nombre = $("#portada-excursion-imagenes").attr("src");
+    let estadog =$("#estadoguardar").val();
+
 
     if(nombre!=""){
         let imagenes_new = new Imagenes(nombre);
+        imagenes_new.estado = estadog;
         arrayImagenes.push(imagenes_new);
         localStorage.setItem('imagenese', JSON.stringify(arrayImagenes));
+
 
         dibujarTablaImagenes();
 
